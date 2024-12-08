@@ -14,8 +14,7 @@ class CalcActivity : AppCompatActivity() {
         binding = ActivityCalcBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val conversionFactor = if (InputActivity.isSeaMile) 1.852 else 1.609
-        val result = InputActivity.miles * conversionFactor
+        val result = CalcImpl(InputActivity.isSeaMile, InputActivity.miles).Calc()
 
         binding.resultView.text = "Расстояние: ${String.format("%.2f", result)} km"
 
@@ -24,3 +23,4 @@ class CalcActivity : AppCompatActivity() {
         }
     }
 }
+
